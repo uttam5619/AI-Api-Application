@@ -9,7 +9,7 @@ class AuthService{
     async signupService(name,email,password){
         try{
             // first sanitize the data before sending it to the repository layer
-            const newUser = await authRepository.signUpRepository(name, email, password);
+            const newUser = await this.authRepository.signUpRepository(name, email, password);
             return newUser;
         }catch(err){
             console.log(err.message);

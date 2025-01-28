@@ -13,7 +13,7 @@ class AuthRepository {
             await newUser.save();
             return newUser;
         }catch(err){
-            console.log(err.message);
+            console.log(`Error in auth repository ${err.message}`);
         }
     }
 

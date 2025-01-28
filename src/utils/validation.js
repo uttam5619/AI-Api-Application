@@ -28,4 +28,21 @@ const registerValidationRules = [
     
 ]
 
-module.exports = registerValidationRules
+const userLoginRules = [
+
+    body('email')
+    .notEmpty()
+    .withMessage('email is required')
+    .trim(),
+
+    body('password')
+    .notEmpty()
+    .withMessage('password is required')
+    .trim()
+
+]
+
+module.exports = {
+    registerValidationRules,
+    userLoginRules,
+}

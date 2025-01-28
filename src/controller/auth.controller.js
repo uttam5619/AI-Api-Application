@@ -19,6 +19,15 @@ const signUp = async (req, res) => {
             )
         }
 
+        const doesUserExist = await userService.getTheUser(email)
+        if(doesUserExist){
+            return res.status(400).json(
+                {
+                    success:false,
+                    message: 'User already exists'
+                }
+            )
+        }
         const newUser = await authService.signupService(name, email, password)
         
         return res.status(200).json(
@@ -41,7 +50,21 @@ const signUp = async (req, res) => {
 
 
 const signIn = async (req, res) => {
-    
+    try{
+        const { email, password } = req.body
+        if(!email || !password){
+            return res.status(400).json(
+                {
+                    success:false,
+                    message: 'All fields are required'
+                }
+            )
+        }
+
+
+    }catch(err){
+        console.log(err.message)
+    }
 }
 
 

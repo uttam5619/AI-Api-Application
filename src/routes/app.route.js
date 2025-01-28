@@ -4,8 +4,8 @@ const userRouter = require('./v1/user.route')
 
 const appRouter = express.Router()
 
-appRouter.use('/app/v1/auth', authRouter)
-appRouter.use('/app/v1/user', userRouter)
+appRouter.use('/v1/auth', authRouter)
+appRouter.use('/v1/user', userRouter)
 
 
 

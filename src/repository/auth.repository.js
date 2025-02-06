@@ -5,7 +5,7 @@ class AuthRepository {
 
     async signUpRepository(name, email, password){
         try{
-            const newUser = new User({
+            const newUser = await User.create({
                 name,
                 email,
                 password
@@ -17,8 +17,14 @@ class AuthRepository {
         }
     }
 
-    async signInRepository(){
-
+    async signInRepository(email){
+        try{
+            const registeredUser = await User.findOne(email).select('-password')
+            return registeredUser
+        }catch(err){
+            console.log(err.message)
+        }
+        
     }
 
     async signOutRepository(){

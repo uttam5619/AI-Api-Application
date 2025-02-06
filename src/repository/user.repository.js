@@ -4,7 +4,7 @@ class UserRepository {
 
     async getTheUser(email){
         try{
-            const user =await User.findOne(email)
+            const user =await User.findOne({email})
             if(!user){
                 return response.status(404).json(
                     {
